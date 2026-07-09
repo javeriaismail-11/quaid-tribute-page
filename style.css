@@ -1,0 +1,246 @@
+/* ===========================================================
+   TOKENS
+   =========================================================== */
+:root {
+  --green:      #0F3D2E;   /* deep flag green */
+  --green-deep: #082821;
+  --cream:      #F7F4EC;   /* light section background #1 */
+  --white:      #FFFFFF;   /* section background #2 */
+  --gold:       #C7A244;
+  --ink:        #1B1B1B;
+  --steel:      #5B5F5A;
+  --line:       #E4DFCF;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --fs-h1:  clamp(2.2rem, 5.5vw + 1rem, 4.2rem);
+  --fs-h2:  clamp(1.6rem, 3vw + 0.8rem, 2.5rem);
+  --fs-h3:  clamp(1.05rem, 1vw + 0.7rem, 1.25rem);
+  --fs-body: clamp(0.97rem, 0.3vw + 0.85rem, 1.08rem);
+
+  --gap: clamp(1rem, 3vw, 2.5rem);
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0 0 0.4em; }
+p { margin: 0 0 1em; }
+
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin: 0 0 0.6em;
+}
+
+.section-inner { max-width: 800px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+/* ===========================================================
+   HERO — background colour #1 (deep green)
+   =========================================================== */
+.hero {
+  background: linear-gradient(160deg, var(--green), var(--green-deep));
+  color: var(--white);
+  padding: clamp(4rem, 12vw, 7rem) clamp(1.25rem, 6vw, 3rem);
+  text-align: center;
+}
+.hero-inner { max-width: 760px; margin: 0 auto; }
+.hero .eyebrow { color: var(--gold); }
+#title { font-size: var(--fs-h1); font-weight: 800; margin-bottom: 0.3em; }
+.tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw + 0.6rem, 1.3rem);
+  color: rgba(255,255,255,0.82);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* ===========================================================
+   PORTRAIT
+   =========================================================== */
+.portrait-section {
+  background: var(--white);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+  display: flex;
+  justify-content: center;
+}
+.portrait {
+  margin: 0;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+.portrait img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(15, 61, 46, 0.18);
+  border: 6px solid var(--white);
+  outline: 1px solid var(--line);
+}
+.portrait figcaption {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--steel);
+}
+
+/* ===========================================================
+   BIOGRAPHY — background colour #2 (cream)
+   =========================================================== */
+.biography {
+  background: var(--cream);
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+}
+.biography h2 { font-size: var(--fs-h2); color: var(--green); }
+.biography p { max-width: 68ch; }
+
+/* ===========================================================
+   QUOTE — distinct styling
+   =========================================================== */
+.quote-section {
+  background: var(--green);
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+.quote {
+  max-width: 760px;
+  margin: 0 auto;
+  border-left: 4px solid var(--gold);
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+}
+.quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2.2vw + 0.8rem, 2rem);
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 0.6em;
+}
+.quote cite {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+/* ===========================================================
+   TIMELINE — background colour (white), styled cards
+   =========================================================== */
+.timeline-section {
+  background: var(--white);
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+}
+.timeline-section h2 { color: var(--green); }
+
+.timeline {
+  list-style: none;
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+}
+.year {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 999px;
+  padding: 0.3em 0.7em;
+  height: fit-content;
+  white-space: nowrap;
+}
+.timeline-content h3 { font-size: var(--fs-h3); color: var(--ink); margin-bottom: 0.15em; }
+.timeline-content p { margin: 0; color: var(--steel); font-size: 0.95rem; }
+
+/* ===========================================================
+   VIDEO
+   =========================================================== */
+.video-section {
+  background: var(--cream);
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+}
+.video-section h2 { color: var(--green); }
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(15, 61, 46, 0.15);
+}
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-note {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--steel);
+}
+.video-note code {
+  font-family: var(--font-mono);
+  background: var(--white);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+.site-footer {
+  background: var(--green-deep);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+}
+.site-footer p { margin: 0.2em 0; }
+
+/* ===========================================================
+   BREAKPOINTS — mobile-first
+   =========================================================== */
+@media (min-width: 640px) {
+  .timeline-item { grid-template-columns: 100px 1fr; }
+}
+
+@media (min-width: 900px) {
+  .portrait { max-width: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
